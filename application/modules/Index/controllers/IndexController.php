@@ -12,6 +12,8 @@ class Index_IndexController extends Zend_Controller_Action
     
     public function loginAction()
     {
+        if (!Zend_Auth::getInstance()->hasIdentity())
+            $this->_redirect('Index/index');
     }
     
     public function indexAction()
