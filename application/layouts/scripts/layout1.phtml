@@ -1,0 +1,79 @@
+<!--?php echo $this->layout()->content; 
+echo $this->baseUrl();
+?-->
+<!DOCTYPE html>
+<html lang="Es">    
+    <head>
+        <meta charset="utf-8"/>
+        <title>Bienestar ICETEX</title>
+        <link rel="shortcut icon" href="../imagenes/favicon.ico">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <meta content="" name="description"/>
+        <meta content="" name="author"/>
+        <!-- Bootstrap core CSS -->
+        <link href="<?php echo $this->baseUrl; ?>/bootstrap-3/dist/css/bootstrap.css" rel="stylesheet" type="text/css" />
+
+        <!-- Bootstrap theme CSS-->
+        <link href="<?php echo $this->baseUrl; ?>/bootstrap-3/dist/css/bootstrap-theme.css" rel="stylesheet" type="text/css"/>
+
+        <!--validator theme CSS-->
+        <link rel="stylesheet" href="<?php echo $this->baseUrl; ?>/validador/css/validationEngine.jquery.css" type="text/css"/>
+        <link rel="stylesheet" href="<?php echo $this->baseUrl; ?>/validador/css/template.css" type="text/css"/>
+
+        <!-- Custom styles for this template -->
+        <link href="<?php echo $this->baseUrl; ?>/bootstrap-3/dist/css/sticky-footer-navbar.css" rel="stylesheet" type="text/css"/>
+
+        <!--library-->
+        <script src="<?php echo $this->baseUrl; ?>/validador/js/jquery-1.8.3.min.js" type="text/javascript"></script>
+        <script src="<?php echo $this->baseUrl; ?>/bootstrap-3/dist/js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="<?php echo $this->baseUrl; ?>/validador/js/jquery.validationEngine.js" type="text/javascript"></script>
+        <script src="<?php echo $this->baseUrl; ?>/validador/js/languages/jquery.validationEngine-es.js" type="text/javascript"></script>
+
+        <!--enviar la url base a los javascript-->
+        <script type='text/javascript'>
+            var url = '<?php echo $this->baseUrl(); ?>';
+        </script> 
+
+        <!--pasar los js personalizados-->
+
+
+
+<!--       <script>
+
+            $(document).ready(function() {
+                //Inicializamos la libreria validadora para el formulario con id (nombre), "frmCrear"
+                $("#frmConsultar").validationEngine();
+                $("#frmActualizar").validationEngine();
+                $("#frmCrear").validationEngine();
+            });
+        </script>-->
+
+    </head>
+
+    <body>  
+        <header>
+            <!--?php include 'header.php';?>-->
+          <a href="<?php echo $this->baseUrl;?>/index/"><img id="banner" src="<?php echo $this->baseUrl; ?>/imagenes/banner1.png"/></a>
+        </header>
+
+        <!--menus-->
+        <nav>
+        <div class="navbar navbar-default">
+                                          <?php //echo $this->render('nav.phtml'); ?> 
+            </div>
+        </nav>
+        <section id="contenedor">
+
+            <!--Sidebar content-->
+            <article>
+                <?php //echo $this->render('sidebar.phtml'); ?>
+            </article>
+
+            <!--Body content-->       
+            <aside>
+                <?php echo $this->layout()->content; ?>
+            </aside>
+        </section>
+    </body>
+</html>

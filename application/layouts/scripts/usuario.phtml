@@ -1,0 +1,19 @@
+<?php echo $this->doctype() ?>
+<html>
+    <head>
+        <?php $this->headMeta()->appendHttpEquiv('Content-Type', 'text/html; charset='.$this->getEncoding())->appendHttpEquiv('Content-Language', 'es-ES');
+        echo $this->headMeta();
+        $menu = 1;
+        $this->headLink()->appendStylesheet($this->baseUrl.'/bootstrap-3/dist/css/bootstrap.css');
+        $this->headLink()->appendStylesheet($this->baseUrl.'/css/css.css');
+        $this->headLink()->appendStylesheet($this->baseUrl.'/bootstrap-3/examples/signin/signin.css');
+        echo $this->headLink();
+        echo $this->headTitle('ICETEX');
+        //$this->headScript()->appendFile('/js/common.js');
+        //echo $this->headScript();?>
+        <link rel="shortcut icon" type="image/x-icon" href="<?php echo $this->baseUrl; ?>/imagenes/favicon.ico" />
+    </head>
+    <body>
+        <div>innn</div>
+    </body>
+</html>

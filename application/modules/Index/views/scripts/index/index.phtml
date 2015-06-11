@@ -1,0 +1,13 @@
+<form class="form-signin" method="<?php echo $this->formLogin->getMethod(); ?>">
+  <div class="panel panel-primary">
+    <?php echo $this->errorMessage;?>
+    <div class="panel-header">
+      <center><h2>ACCESO</h2></center>
+    </div>
+    <div class="panel-body">
+  <div class="form-group"><?php echo $this->formLogin->getElement('usuario'); ?></div>
+  <div class="form-group"><?php echo $this->formLogin->getElement('contrasenia'); ?></div>
+  <div class="form-group"><?php echo $this->formLogin->getElement('submit'); ?></div>
+    </div>
+  </div>
+</form>

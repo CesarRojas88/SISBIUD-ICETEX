@@ -1,0 +1,22 @@
+<?php
+  $session = new Zend_Session_Namespace('SuperAdmin');
+  $auth = Zend_Auth::getInstance();
+  $authStorage=$auth->getIdentity();
+  $perfil = $authStorage->perfil;
+  $baseUrl = Zend_Controller_Front::getInstance()->getBaseUrl();
+?>
+<div>
+  <div class='navbar-header'>
+  </div>
+  <div class='form-control-static'> 
+    <div class='navbar-collapse list-group'>
+      <div class='list-group-item active'>Menú Principal</div>
+      <a class='list-group-item nav-stacked' href='<?php echo $this->url(array('module'=>'Index','controller'=>'index','action'=>'login')); ?>'>Inicio</a>
+      <?php if($perfil == 'Director') { ?><a class='list-group-item nav-stacked' href='<?php echo $this->url(array('module'=>'Usuarios','controller' => 'usuario','action' => 'index')); ?>'>Administrar Usuarios</a><?php } ?>
+      <a class='list-group-item nav-stacked' href='#about'>Giros</a>
+      <a class='list-group-item nav-stacked' href='<?php echo $baseUrl; ?>/administracion/administrar'>Administrar</a>
+      <a class='list-group-item nav-stacked' href='<?php echo $baseUrl; ?>/reportes/index'>Reportes</a>
+    </div>
+  </div>
+</div>
+</div>
