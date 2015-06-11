@@ -18,7 +18,7 @@ class Usuarios_UsuarioController extends Zend_Controller_Action
             $table= new Usuarios_Model_DbTable_User();
             $this->view->datos=$table->mostrarUsuarios();
         } else {
-            $this->_redirect('Index/index/login');
+            $this->_redirect('Index/index');
         }
     }
 }
