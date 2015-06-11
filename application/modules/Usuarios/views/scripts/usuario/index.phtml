@@ -105,42 +105,9 @@
 </div>
 
 <script>
-$(document).ready(function() {
-    $('#loginForm').formValidation({
-        framework: 'bootstrap',
-        icon: {
-            valid: 'glyphicon glyphicon-ok',
-            invalid: 'glyphicon glyphicon-remove',
-            validating: 'glyphicon glyphicon-refresh'
-        },
-        fields: {
-            username: {
-                validators: {
-                    notEmpty: {
-                        message: 'The username is required'
-                    }
-                }
-            },
-            password: {
-                validators: {
-                    notEmpty: {
-                        message: 'The password is required'
-                    }
-                }
-            }
-        }
+    $(document).ready(function(){
+        $('.dropdown-toggle').dropdown();
     });
-});
-$(document).ready(function() {
-    $('#loginForm').formValidation({
-        message: 'This value is not valid',
-        excluded: [':disabled'],
-        
-    });
-});
-$('#loginModal').on('shown.bs.modal', function() {
-    $('#loginForm').formValidation('resetForm', true);
-});
 </script>
     </div>
     
