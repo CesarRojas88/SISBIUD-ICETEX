@@ -2,7 +2,6 @@
 class Index_Bootstrap extends Zend_Application_Module_Bootstrap
 {
       protected function _initView(){
-              
             //Inicializamos la vista  
             $view=new Zend_View();
             $view->setEncoding('UTF-8');
