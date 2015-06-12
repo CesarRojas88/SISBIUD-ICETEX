@@ -3,32 +3,34 @@
     <div class="panel-primary panel">
         <div class="panel-heading"><h4 class="panel-title">USUARIOS</h4></div>
     </div>
-    <form class="well form-inline">                    
-        Usuario
-        <input type="text" name="usuario" class="input-medium search-query" >
-        Perfil
-        <select name="perfil">
-            <option value="">Seleccione...</option>
-            <option value="Administrador">Administrador</option>
-            <option value="Secretaria">Secretaria</option>
-        </select>
-        
-        <label class="radio inline">
-            <input TYPE="radio" VALUE="true" NAME="destado" checked>Activos 
-        </label>
-        <label class="radio inline" >
-            <input TYPE="radio" VALUE="false" NAME="destado" >Inactivos 
-        </label>
-        <button type="submit" class="btn btn-inverse" name="buscar">Buscar</button>
+    <form class="form-inline form-group">                    
+        <label>Filtrar por: </label>
+        <div class="btn-group">
+            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="sel" type="button"><h7>Seleccione...</h7><span class="caret"></span></button>
+            <ul class="dropdown-menu sel" role="menu">
+                <li><a href='#'>Usuario</a></li>
+                <li><a href='#'>Perfil</a></li>
+                <li><a href='#'>Estado</a></li>
+                <li><a href='#'>Cedula</a></li>
+            </ul>
+        </div>
+        <div class="form-group">
+        <input type="text" name="usuario" class="form-control" >
+        </div>
     </form>
-    
+    <div style="text-align: right" class="form-group">
+                <button type="button" class="btn btn-danger" name="other">Añadir otro filtro</button>
+                <input type="button" value="Buscar" class="btn btn-danger"/>
+    </div>
     <div style="background: white; padding: 5px; border-radius: 5px; border: 1px #ccc solid; box-shadow: 1px 0px 5px 1px #cccccc;">
         <table class="table table-striped table-bordered table-hover">
             <thead>
                 <tr>
-                    <th class="text-center" >Usuario</th>
+                    <th class="text-center">Cuenta</th>
+                    <th class="text-center">Usuario</th>
                     <th class="text-center">Perfil</th>
                     <th class="text-center">Estado</th>
+                    <th class="text-center">Cedula</th>
                     <th>&nbsp;</th>
                 </tr>
             </thead>
@@ -36,8 +38,10 @@
                 <?php foreach ($this->datos as $d) : ?>
                 <tr>
                     <td><?php echo $d->nombre_usuario; ?></td>
+                    <td><?php echo $d->nombre_real . " " . $d->apellido_real; ?></td>
                     <td><?php echo $this->escape($d->perfil); ?></td>
                     <td><?php echo $this->escape($d->estado); ?></td>
+                    <td><?php echo $this->escape($d->cedula); ?></td>
                     <td>
                         <div class="btn-group">
                             <button type="button" class="btn btn-default dropdown-toggle"data-toggle="dropdown">
@@ -107,6 +111,14 @@
 <script>
     $(document).ready(function(){
         $('.dropdown-toggle').dropdown();
+         $(function(){
+
+    $(".sel").on('click', 'li a', function(){
+      $("[id=sel] > h7").text($(this).text());
+      $("[id=sel]").val($(this).text());
+   });
+
+});
     });
 </script>
     </div>
