@@ -15,7 +15,7 @@ class Usuarios_UsuarioController extends Zend_Controller_Action
     {
         // action body
         if (Zend_Auth::getInstance()->hasIdentity()) {
-            $table= new Usuarios_Model_DbTable_User();
+            $table= new Usuarios_Model_DbTable_Usuario();
             $this->view->datos=$table->mostrarUsuarios();
         } else {
             $this->_redirect('Index/index');

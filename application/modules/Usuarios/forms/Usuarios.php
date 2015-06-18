@@ -14,8 +14,8 @@ class Usuarios_Form_Usuarios extends Zend_Form
                 ->addFilter('StripTags')
                 ->addFilter('StringTrim')
                 ->addValidator('NotEmpty');
-        $modulo=new Zend_Form_Element_Hidden('cod_modulo');
-        $modulo->setValue('2');
+        //$modulo=new Zend_Form_Element_Hidden('cod_modulo');
+        //$modulo->setValue('2');
         
         $contrasena=new Zend_Form_Element_Password('contrasena');
         $contrasena->setLabel('Contraseña: ')

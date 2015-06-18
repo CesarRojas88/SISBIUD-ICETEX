@@ -21,6 +21,9 @@
       <modelsDirectory>
         <modelFile modelName="Login"/>
         <modelFile modelName="Index"/>
+        <dbTableDirectory>
+          <dbTableFile dbTableName="Usuario"/>
+        </dbTableDirectory>
       </modelsDirectory>
       <modulesDirectory>
         <moduleDirectory moduleName="Index">
@@ -127,6 +130,7 @@
               <dbTableFile dbTableName="ValoresSemestre"/>
               <dbTableFile dbTableName="ValoresSemestrePorFacultad"/>
               <dbTableFile dbTableName="ViewBeneficiarios"/>
+              <dbTableFile dbTableName="Usuario"/>
             </dbTableDirectory>
           </modelsDirectory>
           <servicesDirectory enabled="false"/>
@@ -249,6 +253,7 @@
               <dbTableFile dbTableName="ValoresSemestre"/>
               <dbTableFile dbTableName="ValoresSemestrePorFacultad"/>
               <dbTableFile dbTableName="ViewBeneficiarios"/>
+              <dbTableFile dbTableName="Usuario"/>
             </dbTableDirectory>
           </modelsDirectory>
           <servicesDirectory enabled="false"/>
@@ -258,6 +263,21 @@
                 <viewScriptFile forActionName="index"/>
               </viewControllerScriptsDirectory>
             </viewScriptsDirectory>
+            <viewHelpersDirectory/>
+            <viewFiltersDirectory/>
+          </viewsDirectory>
+        </moduleDirectory>
+        <moduleDirectory moduleName="prueba">
+          <configsDirectory enabled="false"/>
+          <controllersDirectory/>
+          <formsDirectory enabled="false"/>
+          <layoutsDirectory enabled="false">
+            <layoutScriptsDirectory enabled="false"/>
+          </layoutsDirectory>
+          <modelsDirectory/>
+          <servicesDirectory enabled="false"/>
+          <viewsDirectory>
+            <viewScriptsDirectory/>
             <viewHelpersDirectory/>
             <viewFiltersDirectory/>
           </viewsDirectory>

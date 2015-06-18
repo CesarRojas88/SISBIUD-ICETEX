@@ -39,7 +39,7 @@ class Index_IndexController extends Zend_Controller_Action
 	      // enviamos una consulta al modelo
 		  // el modelo nos devuelve un conjunto de datos, entre ellos el nombre real y el apellido
 		  // esos datos los seteamos a nav.phtml como una variable global de sesion
-                    $datos2=new Index_Model_DbTable_User();
+                    $datos2=new Index_Model_DbTable_Usuario();
 		    $usuario_info=$datos2->setLogueo($usuario);
                     Zend_Session::start();
                     $authStorage=$this->auth->getStorage();
@@ -75,7 +75,7 @@ class Index_IndexController extends Zend_Controller_Action
     private function getAuthAdapter()
     {
         $authAdapter= new Zend_Auth_Adapter_DbTable(Zend_Db_Table::getDefaultAdapter());
-        $authAdapter->setTableName('user')
+        $authAdapter->setTableName('usuario')
                 ->setIdentityColumn('nombre_usuario')
                 ->setCredentialColumn('contrasena');
         return $authAdapter;
