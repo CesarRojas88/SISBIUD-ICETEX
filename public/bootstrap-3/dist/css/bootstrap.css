@@ -137,12 +137,12 @@ aside{
     border-radius: 0.25em;		
     color: black;
     /*en linea y acoge todo lo que tengamos dentro de este div, puede ser otras etiquetas html*/
-    display: inline-block;	
+    //display: inline-block;	
     margin: 0.5em auto;
     padding: 0.25em;		
     text-align: center;
     vertical-align: top;
-    width: 650px;
+    width: 65%;float: left; margin-left: 5%;
 }
 
 

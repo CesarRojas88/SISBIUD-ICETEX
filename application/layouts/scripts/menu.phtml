@@ -13,6 +13,7 @@
       <div class='list-group-item active'>Menú Principal</div>
       <a class='list-group-item nav-stacked' href='<?php echo $this->url(array('module'=>'Index','controller'=>'index','action'=>'login')); ?>'>Inicio</a>
       <?php if($perfil == 'Director') { ?><a class='list-group-item nav-stacked' href='<?php echo $this->url(array('module'=>'Usuarios','controller' => 'usuario','action' => 'index')); ?>'>Administrar Usuarios</a><?php } ?>
+      <a class='list-group-item nav-stacked' href='<?php echo $this->url(array('module'=>'Modalidad','controller'=>'modalidad','action'=>'index')); ?>'>Administrar modalidades de crédito</a>
       <a class='list-group-item nav-stacked' href='#about'>Giros</a>
       <a class='list-group-item nav-stacked' href='<?php echo $baseUrl; ?>/administracion/administrar'>Administrar</a>
       <a class='list-group-item nav-stacked' href='<?php echo $baseUrl; ?>/reportes/index'>Reportes</a>
