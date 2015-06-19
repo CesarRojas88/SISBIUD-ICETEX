@@ -2,7 +2,7 @@
     <div class="panel-primary panel">
         <div class="panel-heading"><h4 class="panel-title">USUARIOS</h4></div>
     </div>
-    <form class="form-inline form-group">                    
+    <form class="form-inline form-group" id="filter_1">                    
         <label>Filtrar por: </label>
         <div class="btn-group">
             <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="sel" type="button"><h7>Seleccione...</h7><span class="caret"></span></button>
@@ -18,7 +18,7 @@
         </div>
     </form>
     <div style="text-align: right" class="form-group">
-        <button type="button" class="btn btn-danger" name="other">Añadir otro filtro</button>
+        <button type="button" class="btn btn-danger" name="other" id="other">Añadir otro filtro</button>
         <input type="button" value="Buscar" class="btn btn-danger"/>
     </div>
     <div style="background: white; padding: 5px; border-radius: 5px; border: 1px #ccc solid; box-shadow: 1px 0px 5px 1px #cccccc;">
@@ -111,15 +111,18 @@
 
 <script>
     $(document).ready(function(){
+        var i=0;
         $('.dropdown-toggle').dropdown();
          $(function(){
-
-    $(".sel").on('click', 'li a', function(){
-      $("[id=sel] > h7").text($(this).text());
-      $("[id=sel]").val($(this).text());
-   });
-
-});
+            $(".sel").on('click', 'li a', function(){
+                $("[id=sel] > h7").text($(this).text());
+                $("[id=sel]").val($(this).text());
+            });
+        });
+        $('#other').click(function(){
+            $('#filter_1').clone().appendTo('#filter_1').attr('id','filter_'+i);
+            i++;
+        });
     });
 </script>
     </div>
