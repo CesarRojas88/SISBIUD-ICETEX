@@ -89,7 +89,28 @@
                     </div>
                     <div class="modal-body">
                         <!-- The form is placed inside the body of modal -->
-                        <?php include './addmodalidad.phtml'; ?>
+                        <form id="loginForm" method="post" class="form-horizontal">
+                            <div class="form-group">
+                                <?php echo $this->add->getElement('cod_modalidad_credito'); ?>
+                                <label class="col-xs-4 control-label">Nombre de modalidad</label>
+                                <div class="col-xs-7">
+                                    <?php echo $this->add->getElement('nombre_modalidad_credito'); ?>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-4 control-label">Descripción</label>
+                                <div class="col-xs-7">
+                                    <?php echo $this->add->getElement('descripcion_modalidad'); ?>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-5 col-xs-offset-3">
+                                    <?php echo $this->add->getElement('submitmodalidad'); ?>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                </div>
+                            </div>
+                        </form>
+                        <?php //include './addmodalidad.phtml'; ?>
                     </div>
                     
                 </div>

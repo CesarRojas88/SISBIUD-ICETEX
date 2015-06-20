@@ -16,19 +16,7 @@ class Modalidad_ModalidadController extends Zend_Controller_Action
         {
             $tablamodalidad=new Modalidad_Model_DbTable_ModalidadDeCredito();
             $this->view->mostrarmodalidad=$tablamodalidad->mostrarModalidades();
-            
-                   
-        } else 
-        {
-            $this->_redirect('Index/index');
-        }
-    }
-
-    public function addmodalidadAction()
-    {
-        if (Zend_Auth::getInstance()->hasIdentity()) 
-        {
-        $formadd=new Modalidad_Form_Modalidad();
+            $formadd=new Modalidad_Form_Modalidad();
         $this->view->add=$formadd;
         if($this->getRequest()->isPost())
         {
@@ -49,10 +37,18 @@ class Modalidad_ModalidadController extends Zend_Controller_Action
                 $formadd->populate($formData);
             }
         }
+                   
         } else 
         {
             $this->_redirect('Index/index');
         }
+    }
+
+    public function addmodalidadAction()
+    {
+        
+        
+        
     }
 
 
