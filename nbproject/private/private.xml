@@ -3,12 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/SISBIUD-ICETEX/application/layouts/scripts/layout.phtml</file>
-            <file>file:/C:/wamp/www/SISBIUD-ICETEX/application/modules/Usuarios/controllers/UsuarioController.php</file>
-            <file>file:/C:/wamp/www/SISBIUD-ICETEX/application/modules/Usuarios/views/scripts/usuario/index.phtml</file>
-            <file>file:/C:/wamp/www/SISBIUD-ICETEX/application/modules/Index/views/scripts/index/login.phtml</file>
             <file>file:/C:/wamp/www/SISBIUD-ICETEX/application/modules/modalidad/views/scripts/modalidad/index.phtml</file>
-            <file>file:/C:/wamp/www/SISBIUD-ICETEX/public/bootstrap-3/dist/css/bootstrap.css</file>
+            <file>file:/C:/wamp/www/SISBIUD-ICETEX/application/modules/Modalidad/forms/Modalidad.php</file>
             <file>file:/C:/wamp/www/SISBIUD-ICETEX/application/modules/modalidad/controllers/ModalidadController.php</file>
         </group>
     </open-files>
