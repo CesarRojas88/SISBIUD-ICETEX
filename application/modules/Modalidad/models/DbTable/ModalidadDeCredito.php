@@ -13,6 +13,9 @@ class Modalidad_Model_DbTable_ModalidadDeCredito extends Zend_Db_Table_Abstract
         $data=array('nombre_modalidad_credito'=>$nombre,'descripcion_modalidad'=>$descripcion);
         $this->insert($data);
     }
-
+    function mostrarporId($id)
+    {
+        //$consulta="SELECT* FROM modalidad_de_credito WHERE cod_modalidad_credito= ?".$id;
+    }
 }
 

@@ -43,13 +43,32 @@
                               Opciones <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu" role="menu">
-                              <li><a href="#">Ver</a></li>
-                              <li class="divider"></li>
-                              <li><a href="#">Editar</a></li>
-                              <li class="divider"></li>
-                              <li><a href="#">Eliminar</a></li>
+                                <?php $idmod=$mod->cod_modalidad_credito; ?>
+                                <li><a data-toggle="modal" href="#<?php echo $idmod; ?>">Ver</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Editar</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Eliminar</a></li>
                             </ul>
-                          </div>
+                            <div id="<?php echo $idmod; ?>" class="modal fade">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4 class="modal-title">Modalidad de crédito</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Do you want to save changes you made to document before closing?</p>
+                                            <p class="text-warning"><small>If you don't save, your changes will be lost.</small></p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </td>
                 </tr>
                 <?php endforeach;?>
@@ -59,6 +78,7 @@
             <button class="btn btn-danger" data-toggle="modal" data-target="#loginModal">Ingresar modalidad de crédito</button>
         </p>
         <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
+            
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -67,34 +87,16 @@
                         </button>
                         <h4 class="modal-title">Nueva modalidad de crédito</h4>
                     </div>
-
                     <div class="modal-body">
                         <!-- The form is placed inside the body of modal -->
-                        <form id="loginForm" method="post" class="form-horizontal">
-                            <div class="form-group">
-                                <?php echo $this->add->getElement('cod_modalidad_credito'); ?>
-                                <label class="col-xs-4 control-label">Nombre de modalidad</label>
-                                <div class="col-xs-7">
-                                    <?php echo $this->add->getElement('nombre_modalidad_credito'); ?>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-xs-4 control-label">Descripción</label>
-                                <div class="col-xs-7">
-                                    <?php echo $this->add->getElement('descripcion_modalidad'); ?>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-xs-5 col-xs-offset-3">
-                                    <?php echo $this->add->getElement('submitmodalidad'); ?>
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                                </div>
-                            </div>
-                        </form>
+                        <?php include './addmodalidad.phtml'; ?>
                     </div>
+                    
                 </div>
             </div>
-       </div>
+        </div>
+        
+        
     </div>
 
 </aside>
