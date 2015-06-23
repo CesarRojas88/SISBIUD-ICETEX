@@ -21,6 +21,7 @@
         <dbTableDirectory>
           <dbTableFile dbTableName="Usuario"/>
         </dbTableDirectory>
+        <modelFile modelName="Estado"/>
       </modelsDirectory>
       <modulesDirectory>
         <moduleDirectory moduleName="Index">
@@ -386,6 +387,130 @@
               </viewControllerScriptsDirectory>
               <viewControllerScriptsDirectory forControllerName="Modalidad">
                 <viewScriptFile forActionName="addmodalidad"/>
+              </viewControllerScriptsDirectory>
+            </viewScriptsDirectory>
+            <viewHelpersDirectory/>
+            <viewFiltersDirectory/>
+          </viewsDirectory>
+        </moduleDirectory>
+        <moduleDirectory moduleName="Estado">
+          <configsDirectory enabled="false"/>
+          <controllersDirectory>
+            <controllerFile controllerName="Estado">
+              <actionMethod actionName="index"/>
+            </controllerFile>
+          </controllersDirectory>
+          <formsDirectory>
+            <formFile formName="Estado"/>
+          </formsDirectory>
+          <layoutsDirectory enabled="false">
+            <layoutScriptsDirectory enabled="false"/>
+          </layoutsDirectory>
+          <modelsDirectory>
+            <dbTableDirectory>
+              <dbTableFile dbTableName="ActividadesRecreativas"/>
+              <dbTableFile dbTableName="Acuerdos"/>
+              <dbTableFile dbTableName="Administrativos"/>
+              <dbTableFile dbTableName="AdministrativosBienestar"/>
+              <dbTableFile dbTableName="AgendasAtencionSemanal"/>
+              <dbTableFile dbTableName="Anamnesis"/>
+              <dbTableFile dbTableName="Antecedentes"/>
+              <dbTableFile dbTableName="AsignadosA"/>
+              <dbTableFile dbTableName="AsuntosEstudiantiles"/>
+              <dbTableFile dbTableName="Beneficiarios"/>
+              <dbTableFile dbTableName="CitaPsicologia"/>
+              <dbTableFile dbTableName="Citas"/>
+              <dbTableFile dbTableName="CitasMedicas"/>
+              <dbTableFile dbTableName="CitasOdontologicas"/>
+              <dbTableFile dbTableName="ControlExisteciasMed"/>
+              <dbTableFile dbTableName="ControlPlaca"/>
+              <dbTableFile dbTableName="ControlRealizadoConsulta"/>
+              <dbTableFile dbTableName="Convencion"/>
+              <dbTableFile dbTableName="Convenios"/>
+              <dbTableFile dbTableName="Departamentos"/>
+              <dbTableFile dbTableName="Dependencias"/>
+              <dbTableFile dbTableName="Deportes"/>
+              <dbTableFile dbTableName="Deportistas"/>
+              <dbTableFile dbTableName="Diagnostica"/>
+              <dbTableFile dbTableName="DispositivosMedicos"/>
+              <dbTableFile dbTableName="Distribuye"/>
+              <dbTableFile dbTableName="Docentes"/>
+              <dbTableFile dbTableName="Domicilios"/>
+              <dbTableFile dbTableName="Enfermedades"/>
+              <dbTableFile dbTableName="EntidadesExternas"/>
+              <dbTableFile dbTableName="EntidadesSalud"/>
+              <dbTableFile dbTableName="EquiposTorneoInterno"/>
+              <dbTableFile dbTableName="EsDesignado"/>
+              <dbTableFile dbTableName="EsSuministrado"/>
+              <dbTableFile dbTableName="EspecialidadesMedicas"/>
+              <dbTableFile dbTableName="EspecialistasServiciosSalud"/>
+              <dbTableFile dbTableName="EstadoDeCredito"/>
+              <dbTableFile dbTableName="Estudiantes"/>
+              <dbTableFile dbTableName="ExamenBucal"/>
+              <dbTableFile dbTableName="ExamenDental"/>
+              <dbTableFile dbTableName="Examinan"/>
+              <dbTableFile dbTableName="Facultades"/>
+              <dbTableFile dbTableName="Farmaco"/>
+              <dbTableFile dbTableName="FirmaTratamientoBeneficiario"/>
+              <dbTableFile dbTableName="Funcionarios"/>
+              <dbTableFile dbTableName="Giro"/>
+              <dbTableFile dbTableName="HistorialesAntecedentes"/>
+              <dbTableFile dbTableName="HistoriasClinica"/>
+              <dbTableFile dbTableName="HistoricoCitas"/>
+              <dbTableFile dbTableName="HistoricoEstadoCredito"/>
+              <dbTableFile dbTableName="Implementos"/>
+              <dbTableFile dbTableName="Instituciones"/>
+              <dbTableFile dbTableName="Iventarios"/>
+              <dbTableFile dbTableName="Localidades"/>
+              <dbTableFile dbTableName="LocalizadasEn"/>
+              <dbTableFile dbTableName="Medicamentos"/>
+              <dbTableFile dbTableName="ModalidadDeCredito"/>
+              <dbTableFile dbTableName="Modulos"/>
+              <dbTableFile dbTableName="MovimientosExistenciasMed"/>
+              <dbTableFile dbTableName="Municipios"/>
+              <dbTableFile dbTableName="Odontograma"/>
+              <dbTableFile dbTableName="Paises"/>
+              <dbTableFile dbTableName="ParticipantesTorneosInternos"/>
+              <dbTableFile dbTableName="PiezaDental"/>
+              <dbTableFile dbTableName="PracticaDeportes"/>
+              <dbTableFile dbTableName="PrestamoImplementos"/>
+              <dbTableFile dbTableName="ProblematicaEvidenciada"/>
+              <dbTableFile dbTableName="Productos"/>
+              <dbTableFile dbTableName="Proveedores"/>
+              <dbTableFile dbTableName="ProyectosCurriculares"/>
+              <dbTableFile dbTableName="RealizaMovimientos"/>
+              <dbTableFile dbTableName="RegistradosPara"/>
+              <dbTableFile dbTableName="Remite"/>
+              <dbTableFile dbTableName="Revisa"/>
+              <dbTableFile dbTableName="SeCompone"/>
+              <dbTableFile dbTableName="Sedes"/>
+              <dbTableFile dbTableName="Seguimientos"/>
+              <dbTableFile dbTableName="SignosVitalesYSistemas"/>
+              <dbTableFile dbTableName="Sistemas"/>
+              <dbTableFile dbTableName="TalleresOdontologicos"/>
+              <dbTableFile dbTableName="TelefonosUniversidad"/>
+              <dbTableFile dbTableName="TipoModalidadCredito"/>
+              <dbTableFile dbTableName="TipoMovimientoExistencias"/>
+              <dbTableFile dbTableName="TiposAntecedentes"/>
+              <dbTableFile dbTableName="TiposTratamientos"/>
+              <dbTableFile dbTableName="TorneosInternos"/>
+              <dbTableFile dbTableName="TrataMedGral"/>
+              <dbTableFile dbTableName="TratamientoOdontologico"/>
+              <dbTableFile dbTableName="User"/>
+              <dbTableFile dbTableName="Usuario"/>
+              <dbTableFile dbTableName="Usuariofacultad"/>
+              <dbTableFile dbTableName="Usuarios"/>
+              <dbTableFile dbTableName="ValoracionRelacionesInterpersonales"/>
+              <dbTableFile dbTableName="ValoresSemestre"/>
+              <dbTableFile dbTableName="ValoresSemestrePorFacultad"/>
+              <dbTableFile dbTableName="ViewBeneficiarios"/>
+            </dbTableDirectory>
+          </modelsDirectory>
+          <servicesDirectory enabled="false"/>
+          <viewsDirectory>
+            <viewScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Estado">
+                <viewScriptFile forActionName="index"/>
               </viewControllerScriptsDirectory>
             </viewScriptsDirectory>
             <viewHelpersDirectory/>
