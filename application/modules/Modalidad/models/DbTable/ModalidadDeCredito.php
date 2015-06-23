@@ -15,7 +15,13 @@ class Modalidad_Model_DbTable_ModalidadDeCredito extends Zend_Db_Table_Abstract
     }
     function mostrarporId($id)
     {
+        $db = Zend_Db_Table::getDefaultAdapter();
+        $select = Zend_Db_Table::getDefaultAdapter()->select();
+        $select->from('modalidad_de_credito')
+                ->where('cod_modalidad_credito=?',$id);
+        return Zend_Db_Table::getDefaultAdapter()->fetchRow($select);
         
+        return $select;
         //$consulta="SELECT* FROM modalidad_de_credito WHERE cod_modalidad_credito= ?".$id;
     }
 }

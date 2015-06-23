@@ -44,6 +44,7 @@
                             </button>
                             <ul class="dropdown-menu" role="menu">
                                 <?php $idmod=$mod->cod_modalidad_credito; ?>
+                                <input type="hidden" value="<?php echo $idmod; ?>" name="idModalidad">
                                 <li><a data-toggle="modal" href="#<?php echo $idmod; ?>">Ver</a></li>
                                 <li class="divider"></li>
                                 <li><a href="#">Editar</a></li>

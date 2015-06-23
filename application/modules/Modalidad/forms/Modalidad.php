@@ -11,10 +11,10 @@ class Modalidad_Form_Modalidad extends Zend_Form
         $id->addFilter('Int');
         
         $nombre=new Zend_Form_Element_Text('nombre_modalidad_credito');
-        $nombre->setRequired(true)
-                ->addFilter('StripTags')
+        $nombre ->addFilter('StripTags')
                 ->addFilter('StringTrim')
                 ->addValidator('NotEmpty')
+                ->setAttrib('required', 'required')
                 ->setAttrib('class', 'form-control');
         $descripcion=new Zend_Form_Element_Textarea('descripcion_modalidad');
         $descripcion->setAttrib('cols', 50)
