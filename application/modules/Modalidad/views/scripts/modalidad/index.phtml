@@ -35,17 +35,18 @@
             <tbody>
                 <?php foreach ($this->mostrarmodalidad as $mod) : ?>
                 <tr>
+                    <?php $idmod=$mod->cod_modalidad_credito; ?>
                     <td><?php echo $this->escape($mod->nombre_modalidad_credito);?></td>
-                    <td><?php echo $this->escape($mod->descripcion_modalidad); ?></td>
+                    <td id='td<?php echo $idmod; ?>' value="<?php echo $this->escape($mod->descripcion_modalidad); ?>"><?php echo $this->escape($mod->descripcion_modalidad); ?></td>
                     <td>
                         <div class="btn-group">
                             <button type="button" class="btn btn-default dropdown-toggle"data-toggle="dropdown">
                               Opciones <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu" role="menu">
-                                <?php $idmod=$mod->cod_modalidad_credito; ?>
+                                
                                 <input type="hidden" value="<?php echo $idmod; ?>" name="idModalidad">
-                                <li><a data-toggle="modal" href="#<?php echo $idmod; ?>">Ver</a></li>
+                                <li><a data-toggle="modal" name='<?php echo $idmod; ?>' href="#<?php echo $idmod; ?>">Ver</a></li>
                                 <li class="divider"></li>
                                 <li><a href="#">Editar</a></li>
                                 <li class="divider"></li>
@@ -59,7 +60,7 @@
                                             <h4 class="modal-title">Modalidad de crédito</h4>
                                         </div>
                                         <div class="modal-body">
-                                            <p>Do you want to save changes you made to document before closing?</p>
+                                            <p id='texto'>Do you want to save changes you made to document before closing?</p>
                                             <p class="text-warning"><small>If you don't save, your changes will be lost.</small></p>
                                         </div>
                                         <div class="modal-footer">
@@ -124,5 +125,13 @@
 </aside>
 <script>
     $(document).ready(function(){
-        $('.dropdown-toggle').dropdown();});
+        $('.dropdown-toggle').dropdown();
+            $('td:nth-child(2)').each(function(){
+            if ($(this).text().length > 20)
+                $(this).text($(this).text().substring(0,20));
+        });
+        $('a').click(function(){
+            $('p[id=texto]').text($('td[id=td'+$(this).attr('name')+']').attr('value'));
+        });
+    });
 </script>
