@@ -2,33 +2,35 @@
     <div class="panel-primary panel">
         <div class="panel-heading"><h4 class="panel-title">MODALIDAD DE CRÉDITO</h4></div>
     </div>
-    <form class="form-inline form-group">                    
-        <label>Filtrar por: </label>
-        <div class="btn-group">
-            <span class="label label-primary" style="padding: 5px;">Modalidad</span>
-        </div>
-        <div class="form-group">
-            <select name="modalidad" class="form-control">
-                <option value="">Seleccione...</option>
-                <?php foreach ($this->mostrarmodalidad as $mod) : ?>
-                <option value="<?php echo $mod->cod_modalidad_credito; ?>">
-                    <?php echo $mod->nombre_modalidad_credito;?>
-                </option>
-                <?php endforeach;?>
-            </select>
-        </div>
-    </form>
-    <div style="text-align: right" class="form-group">
-        <button type="button" class="btn btn-danger" name="other">Añadir otro filtro</button>
-        <input type="button" value="Buscar" class="btn btn-danger"/>
+    <div class="panel panel-body">
+        <form class="form-inline form-group">                    
+            <label>Filtrar por: </label>
+            <div class="btn-group">
+                <span class="label label-primary" style="padding: 5px;">Modalidad</span>
+            </div>
+            <div class="form-group">
+                <select name="modalidad" class="form-control">
+                    <option value="">Seleccione...</option>
+                    <?php foreach ($this->mostrarmodalidad as $mod) : ?>
+                    <option value="<?php echo $mod->cod_modalidad_credito; ?>">
+                        <?php echo $mod->nombre_modalidad_credito;?>
+                    </option>
+                    <?php endforeach;?>
+                </select>
+            </div>
+            <div style="text-align: right" class="form-group">
+                <input type="button" value="Buscar" class="btn btn-danger"/>
+            </div>
+        </form>
     </div>
-    <div style="background: white; padding: 5px; border-radius: 5px; border: 1px #ccc solid; box-shadow: 1px 0px 5px 1px #cccccc;">
+    
+    <div style="box-shadow: 1px 0px 5px 1px #cccccc;" class="panel panel-body">
         <table class="table table-striped table-bordered table-hover">
             <thead>
                 <tr>
                     <th class="text-center">Modalidad</th>
                     <th class="text-center">Descripción</th>
-                    <th><?php echo $this->mostrar; ?></th>
+                    <th></th>
                 </tr>
             </thead>
             
@@ -36,36 +38,36 @@
                 <?php foreach ($this->mostrarmodalidad as $mod) : ?>
                 <tr>
                     <?php $idmod=$mod->cod_modalidad_credito; ?>
-                    <td><?php echo $this->escape($mod->nombre_modalidad_credito);?></td>
-                    <td id='td<?php echo $idmod; ?>' value="<?php echo $this->escape($mod->descripcion_modalidad); ?>"><?php echo $this->escape($mod->descripcion_modalidad); ?></td>
+                    <td id="tdd<?php echo $idmod;?>" value="<?php echo $this->escape($mod->nombre_modalidad_credito);?>"><?php echo $this->escape($mod->nombre_modalidad_credito);?></td>
+                    <td id='td<?php echo $idmod; ?>' value="<?php echo $this->escape($mod->descripcion_modalidad); ?>"><?php echo substr($this->escape($mod->descripcion_modalidad),0,20)."..."; ?></td>
                     <td>
                         <div class="btn-group">
                             <button type="button" class="btn btn-default dropdown-toggle"data-toggle="dropdown">
                               Opciones <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu" role="menu">
-                                
-                                <input type="hidden" value="<?php echo $idmod; ?>" name="idModalidad">
-                                <li><a data-toggle="modal" name='<?php echo $idmod; ?>' href="#<?php echo $idmod; ?>">Ver</a></li>
+                                <li><a data-toggle="modal" name='<?php echo $idmod; ?>' href="#verModal">Ver</a></li>
                                 <li class="divider"></li>
                                 <li><a href="#">Editar</a></li>
                                 <li class="divider"></li>
                                 <li><a href="#">Eliminar</a></li>
                             </ul>
-                            <div id="<?php echo $idmod; ?>" class="modal fade">
+                            <div id="verModal" class="modal fade">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                            <h4 class="modal-title">Modalidad de crédito</h4>
+                                            <h4 class="modal-title"><strong>Modalidad de crédito</strong></h4>
                                         </div>
                                         <div class="modal-body">
-                                            <p id='texto'>Do you want to save changes you made to document before closing?</p>
-                                            <p class="text-warning"><small>If you don't save, your changes will be lost.</small></p>
+                                            <div class="well">
+                                                <h5><strong><div id="muestranom" align="left"></div></strong></h5>
+                                                <p id='texto' align="justify" ></p>
+                                            </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                            <!--<button type="button" class="btn btn-primary">Save changes</button>-->
                                         </div>
                                     </div>
                                 </div>
@@ -76,7 +78,7 @@
                 <?php endforeach;?>
             </tbody>
         </table>
-        <p class="text-right">
+        <p class="text-right" style="margin-top: 20px;">
             <button class="btn btn-danger" data-toggle="modal" data-target="#loginModal">Ingresar modalidad de crédito</button>
         </p>
         <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
@@ -126,12 +128,13 @@
 <script>
     $(document).ready(function(){
         $('.dropdown-toggle').dropdown();
-            $('td:nth-child(2)').each(function(){
+            /*$('td:nth-child(2)').each(function(){
             if ($(this).text().length > 20)
                 $(this).text($(this).text().substring(0,20));
-        });
+        });*/
         $('a').click(function(){
             $('p[id=texto]').text($('td[id=td'+$(this).attr('name')+']').attr('value'));
+            $('div[id=muestranom]').text($('td[id=tdd'+$(this).attr('name')+']').attr('value'));
         });
     });
 </script>

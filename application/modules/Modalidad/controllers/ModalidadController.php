@@ -24,7 +24,7 @@ class Modalidad_ModalidadController extends Zend_Controller_Action
             $formData=  $this->getRequest()->getPost();
             if($formadd->isValid($formData))
             {
-                //$idMod=$formadd->getValue('cod_modalidad_credito');
+                
                 $nombreMod=$formadd->getValue('nombre_modalidad_credito');
                 $descripcionMod=$formadd->getValue('descripcion_modalidad');
 
