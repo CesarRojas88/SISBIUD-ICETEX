@@ -271,6 +271,7 @@
             <controllerFile controllerName="Modalidad">
               <actionMethod actionName="index"/>
               <actionMethod actionName="addmodalidad"/>
+              <actionMethod actionName="actualizarmodalidad"/>
             </controllerFile>
           </controllersDirectory>
           <formsDirectory>
@@ -387,6 +388,9 @@
               </viewControllerScriptsDirectory>
               <viewControllerScriptsDirectory forControllerName="Modalidad">
                 <viewScriptFile forActionName="addmodalidad"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Modalidad">
+                <viewScriptFile forActionName="actualizarmodalidad"/>
               </viewControllerScriptsDirectory>
             </viewScriptsDirectory>
             <viewHelpersDirectory/>

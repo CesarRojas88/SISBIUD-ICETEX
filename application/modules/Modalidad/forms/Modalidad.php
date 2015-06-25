@@ -18,8 +18,8 @@ class Modalidad_Form_Modalidad extends Zend_Form
                 ->setAttrib('class', 'form-control');
         $descripcion=new Zend_Form_Element_Textarea('descripcion_modalidad');
         $descripcion->setAttrib('cols', 50)
-                ->setAttrib('rows', 4)
-                ->setAttrib('resize', 'none')
+                ->setAttrib('rows', 6)
+                //->setAttrib('resize', 'none')
                 ->setAttrib('class', 'form-control')
                 ->addFilter('StripTags')
                 ->addFilter('StringTrim');

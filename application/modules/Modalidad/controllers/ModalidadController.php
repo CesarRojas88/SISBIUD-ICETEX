@@ -27,6 +27,7 @@ class Modalidad_ModalidadController extends Zend_Controller_Action
     {
         $formadd=new Modalidad_Form_Modalidad();
         $this->view->add=$formadd;
+        //$formadd->submit->setLabel('Insertar Modalidad');
         if($this->getRequest()->isPost())
         {
             $formData=  $this->getRequest()->getPost();
@@ -49,8 +50,56 @@ class Modalidad_ModalidadController extends Zend_Controller_Action
         
     }
 
+    public function actualizarmodalidadAction()
+    {
+        if (Zend_Auth::getInstance()->hasIdentity()) 
+        {
+            $this->view->title="Actualizar Modalidad - ";
+            $this->view->headTitle($this->view->title);
+
+            $formEditar=new Modalidad_Form_Modalidad();
+            //$formEditar->submit->setLabel('Editar Modalidad');
+            $this->view->form=$formEditar;
+            if($this->getRequest()->isPost())
+            {
+                $formDatos=  $this->getRequest()->getPost();
+                if($formEditar->isValid($formDatos))
+                {
+                    $id=$formEditar->getValue('cod_modalidad_credito');
+                    $nombre=$formEditar->getValue('nombre_modalidad_credito');
+                    $descripcion=$formEditar->getValue('descripcion_modalidad');
+                    $formActuali=new Modalidad_Model_DbTable_ModalidadDeCredito();
+                    $formActuali->modificarModalidad($id, $nombre, $descripcion);
+                    $this->_helper->redirector('index');
+                }
+                else
+                {
+                    $formEditar->populate($formDatos);
+                }
+            }
+            else
+            {
+                $id=$this->_getParam('id',0);
+                //var_dump($this->_getParam('id',0));
+                if($id>0)
+                {
+                    $formActuali=new Modalidad_Model_DbTable_ModalidadDeCredito();
+                    //var_dump($modalidadporId->get('3'));
+                    $modalidad=$formActuali->get($id);
+                    $formEditar->populate($modalidad);
+                }
+            }
+        }else 
+        {
+            $this->_redirect('Index/index');
+        }
+        
+    }
+
 
 }
+
+
 
 
 

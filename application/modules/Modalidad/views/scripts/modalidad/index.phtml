@@ -48,7 +48,7 @@
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a data-toggle="modal" name='<?php echo $idmod; ?>' href="#verModal">Ver</a></li>
                                     <li class="divider"></li>
-                                    <li><a href="#">Editar</a></li>
+                                    <li><a href="<?php echo $this->url(array('module'=>'Modalidad','controller'=>'Modalidad','action'=>'actualizarmodalidad','id'=>$idmod)); ?>">Editar</a></li>
                                     <li class="divider"></li>
                                     <li><a href="#">Eliminar</a></li>
                                 </ul>
@@ -81,7 +81,9 @@
         <p class="text-right" style="margin-top: 20px;">
             <button class="btn btn-danger" data-toggle="modal" data-target="#loginModal">Ingresar modalidad de crédito</button>
         </p>
+        <!--Modal que contiene el formulario de añadir-->
         <?php echo $this->action('addmodalidad', 'Modalidad', 'Modalidad'); ?>
+        <!---------------------------------------------->
     </div>
 </aside>
 <script>
