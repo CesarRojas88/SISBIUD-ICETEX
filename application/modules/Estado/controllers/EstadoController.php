@@ -17,8 +17,10 @@ class Estado_EstadoController extends Zend_Controller_Action
         {
             $listaEstado = new Estado_Model_DbTable_EstadoDeCredito();
             $this->view->listaEstado = $listaEstado->Estados();
+            $dropFields = new Estado_Form_Drop();
             $formulario = new Estado_Form_Estado();
-            $this->view->anadir=$formulario;
+            $this->view->anadir = $formulario;
+            $this->view->drop = $dropFields;
             if ($this->getRequest()->isPost()) {
                 $campos = $this->getRequest()->getPost();
                 if ($formulario->isValid($campos)) {
@@ -35,6 +37,17 @@ class Estado_EstadoController extends Zend_Controller_Action
         }
     }
 
-
+    public function dropEstado()
+    {
+        $dropFields = new Estado_Form_Drop();
+        if($this->getRequest()->isPost()) {
+            $campos = $this->getRequest()->getPost();
+            var_dump($campos);
+            $this->_redirect('Estado/estado');
+        } else {
+            $this->_redirec('Estado/estado');
+        }
+        $this->_redirect('Estado/estado');
+    }
 }
 

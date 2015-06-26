@@ -3,54 +3,86 @@
         <div class="panel-heading"><h4 class="panel-title">ESTADO DE CR&Eacute;DITO</h4></div>
     </div>
     <div class="panel panel-body">
-        <form class="form-inline" id="insertEstado" method="post">
-            <label>Nombre del Estado: </label>
-            <div class="form-group">
-                <?php echo $this->anadir->getElement('tipo');?>
-            </div>
-            <label>Descripci&oacute;n: </label>
-            <div class="form-group">
-                <?php echo $this->anadir->getElement('descripcion');?>
-            </div>
-            <div class="form-group">
-                <?php echo $this->anadir->getElement('insertar');?>
-            </div>
-        </form>
     </div>
         <div class="panel panel-body">
-            <table class="table table-striped table-bordered table-hover">
-                <thead>
-                    <tr>
-                        <th>&nbsp;</th>
-                        <th class="text-center">Estado</th>
-                        <th class="text-center">Descripci&oacute;n</th>
-                        <th>&nbsp;</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($this->listaEstado as $d) : ?>
-                    <tr>
-                        <td><input type="checkbox" class="checkbox"/></td>
-                        <td><?php echo $d->nombre_estado_credito; ?></td>
-                        <td><?php echo $this->escape($d->descripcion_estado_credito); ?></td>
-                        <td>
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default">
-                                  Editar
-                                </button>
-                              </div>
-                        </td>
-                    </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
+            <form id="campoEliminar" method="post">
+                <table class="table table-striped table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>&nbsp;</th>
+                            <th class="text-center">Estado</th>
+                            <th class="text-center">Descripci&oacute;n</th>
+                            <th>&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($this->listaEstado as $d) : ?>
+                        <tr>
+                            <td><input type="checkbox" class="checkbox" id="<?php echo $d->id_estado_credito;?>"/></td>
+                            <td><?php echo $d->nombre_estado_credito;?></td>
+                            <td><?php echo $this->escape($d->descripcion_estado_credito); ?></td>
+                            <td>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default">
+                                      Editar
+                                    </button>
+                                  </div>
+                            </td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+                <div style="display: none"><?php echo $this->drop->getElement('check'); ?></div>
+            </form>
             </br>
             <div style="text-align: right">
-            <button type="button" class="btn btn-danger">Eliminar</button>
+                <button type="button" class="btn btn-danger" data-target="#add" data-toggle="modal">Agregar</button>
+                <button type="button" class="btn btn-danger" onclick="location.href='<?php echo $this->url(array('module'=>'Estado', 'controller'=>'Estado','action'=>'dropEstado')); ?>'">Eliminar</button>
+            </div>
         </div>
+    <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">Nueva modalidad de crédito</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" id="insertEstado" method="post">
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">Nombre de Estado</label>
+                            <div class="col-xs-7">
+                                <?php echo $this->anadir->getElement('tipo'); ?>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">Descripción</label>
+                            <div class="col-xs-7">
+                                <?php echo $this->anadir->getElement('descripcion'); ?>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-5 col-xs-offset-3">
+                                <?php echo $this->anadir->getElement('insertar'); ?>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
+    </div>
 </aside>
 <script>
     $(document).ready(function(){
-        $('.dropdown-toggle').dropdown();});
+        $('.dropdown-toggle').dropdown();
+        $('[type=checkbox]').change(function(){
+            if ($(this).prop('checked'))
+                $('[id$='+$(this).attr('id')+']').prop('checked', true);
+            else
+                $('[id$='+$(this).attr('id')+']').prop('checked', false);
+        });
+    });
 </script>

@@ -406,6 +406,7 @@
           </controllersDirectory>
           <formsDirectory>
             <formFile formName="Estado"/>
+            <formFile formName="Drop"/>
           </formsDirectory>
           <layoutsDirectory enabled="false">
             <layoutScriptsDirectory enabled="false"/>

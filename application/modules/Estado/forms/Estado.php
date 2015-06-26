@@ -8,7 +8,7 @@ class Estado_Form_Estado extends Zend_Form
         /* Form Elements & Other Definitions Here ... */
         $this->setName('estado');
         $tipo = new Zend_Form_Element_Text('tipo');
-        $descripcion = new Zend_Form_Element_Text('descripcion');
+        $descripcion = new Zend_Form_Element_Textarea('descripcion');
         $submit = new Zend_Form_Element_Submit('insertar');
         $submit->setLabel('Insertar')
                ->setAttrib('class', 'btn btn-primary');
@@ -18,7 +18,11 @@ class Estado_Form_Estado extends Zend_Form
              ->addValidator('notEmpty');
         $descripcion->setAttrib('required', 'required')
                     ->addValidator('notEmpty')
-                    ->setAttrib('class', 'form-control');
+                    ->setAttrib('cols', 50)
+                    ->setAttrib('rows', 6)
+                    ->setAttrib('class', 'form-control')
+                    ->addFilter('StripTags')
+                    ->addFilter('StringTrim');
         $this->addElements(array($tipo,$descripcion,$submit));
         $this->setElementDecorators(array('ViewHelper',"Errors"));
     }
