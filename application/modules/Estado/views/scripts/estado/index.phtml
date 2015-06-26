@@ -32,13 +32,13 @@
                         <?php endforeach; ?>
                     </tbody>
                 </table>
-                <div style="display: none"><?php echo $this->drop->getElement('check'); ?></div>
-            </form>
+                <div style="display: none"><?php echo $this->anadir->getElement('check'); ?></div>
             </br>
             <div style="text-align: right">
                 <button type="button" class="btn btn-danger" data-target="#add" data-toggle="modal">Agregar</button>
-                <button type="button" class="btn btn-danger" onclick="location.href='<?php echo $this->url(array('module'=>'Estado', 'controller'=>'Estado','action'=>'dropEstado')); ?>'">Eliminar</button>
+                <?php echo $this->anadir->getElement('eliminar') ?>
             </div>
+          </form>
         </div>
     <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
         <div class="modal-dialog">
