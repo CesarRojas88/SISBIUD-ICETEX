@@ -1,3 +1,25 @@
+<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Confirma Eliminar</h4>
+            </div>
+
+            <div class="modal-body">
+                <p>Esta a punto de eliminar el registro, este procedimiento es irreversible.</p>
+                <p>¿Desea confirmar la operación?</p>
+                <!--<p class="debug-url"></p>-->
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <a href="#" class="btn btn-danger danger">Eliminar</a>
+            </div>
+        </div>
+    </div>
+</div>
 <aside>
     <div class="panel-primary panel">
         <div class="panel-heading"><h4 class="panel-title">MODALIDAD DE CRÉDITO</h4></div>
@@ -50,7 +72,11 @@
                                     <li class="divider"></li>
                                     <li><a href="<?php echo $this->url(array('module'=>'Modalidad','controller'=>'Modalidad','action'=>'actualizarmodalidad','id'=>$idmod)); ?>">Editar</a></li>
                                     <li class="divider"></li>
-                                    <li><a href="#">Eliminar</a></li>
+                                    <li>
+                                        <a data-href="<?php echo $this->url(array('module' => 'Modalidad', 'controller' => 'Modalidad', 'action' => 'eliminarmodalidad', 'id' => $idmod)); ?>" data-toggle="modal" data-target="#confirm-delete" href="#">
+                                            Eliminar
+                                        </a>
+                                    </li>
                                 </ul>
                                 <div id="verModal" class="modal fade">
                                     <div class="modal-dialog">
@@ -97,5 +123,10 @@
             $('p[id=texto]').text($('td[id=td' + $(this).attr('name') + ']').attr('value'));
             $('div[id=muestranom]').text($('td[id=tdd' + $(this).attr('name') + ']').attr('value'));
         });
+    });
+    $('#confirm-delete').on('show.bs.modal', function(e)
+    {
+        $(this).find('.danger').attr('href', $(e.relatedTarget).data('href'));
+        //$('.debug-url').html('Elimina registro: <strong>' + $(this).find('.danger').attr('href') + '</strong>');
     });
 </script>

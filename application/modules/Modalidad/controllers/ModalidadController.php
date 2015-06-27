@@ -24,27 +24,32 @@ class Modalidad_ModalidadController extends Zend_Controller_Action
     }
 
     public function addmodalidadAction()
-    {
-        $formadd=new Modalidad_Form_Modalidad();
-        $this->view->add=$formadd;
-        //$formadd->submit->setLabel('Insertar Modalidad');
-        if($this->getRequest()->isPost())
+    {   if (Zend_Auth::getInstance()->hasIdentity()) 
         {
-            $formData=  $this->getRequest()->getPost();
-            if($formadd->isValid($formData))
+            $formadd=new Modalidad_Form_Modalidad();
+            $this->view->add=$formadd;
+            //$formadd->submit->setLabel('Insertar Modalidad');
+            if($this->getRequest()->isPost())
             {
-                $nombreMod=$formadd->getValue('nombre_modalidad_credito');
-                $descripcionMod=$formadd->getValue('descripcion_modalidad');
+                $formData=  $this->getRequest()->getPost();
+                if($formadd->isValid($formData))
+                {
+                    $nombreMod=$formadd->getValue('nombre_modalidad_credito');
+                    $descripcionMod=$formadd->getValue('descripcion_modalidad');
 
-                $bdMod=new Modalidad_Model_DbTable_ModalidadDeCredito();
-                $bdMod->insertarModalidad($nombreMod, $descripcionMod);
+                    $bdMod=new Modalidad_Model_DbTable_ModalidadDeCredito();
+                    $bdMod->insertarModalidad($nombreMod, $descripcionMod);
 
-                $this->_helper->redirector('index');
+                    $this->_helper->redirector('index');
+                }
+                else
+                {
+                    $formadd->populate($formData);
+                }
             }
-            else
-            {
-                $formadd->populate($formData);
-            }
+        }else 
+        {
+            $this->_redirect('Index/index');
         }
         
         
@@ -95,7 +100,20 @@ class Modalidad_ModalidadController extends Zend_Controller_Action
         }
         
     }
-
+    public function eliminarmodalidadAction()
+    {
+        if (Zend_Auth::getInstance()->hasIdentity()) 
+        {
+            $id=  $this->_getParam('id',0);
+            $borrar=new Modalidad_Model_DbTable_ModalidadDeCredito();
+            $borrar->eliminarModalidad($id);
+            $this->_helper->redirector('index');
+        }else 
+        {
+            $this->_redirect('Index/index');
+        }
+        
+    }
 
 }
 
