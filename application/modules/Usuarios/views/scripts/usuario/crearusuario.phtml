@@ -1,0 +1,72 @@
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Crear nuevo usuario</h4>
+            </div>
+            <div class="modal-body">
+                <!-- The form is placed inside the body of modal -->
+                <form id="loginForm" method="post" class="form-horizontal" >
+                    <div class="form-group">
+                        <label class="col-xs-4 control-label">Nombre de usuario</label>
+                        <div class="col-xs-7">
+                            <?php echo $this->agrega->getElement('nombre_usuario'); ?>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-4 control-label">Contraseña</label>
+                        <div class="col-xs-7">
+                            <?php echo $this->agrega->getElement('contrasena'); ?>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-4 control-label">Identificación</label>
+                        <div class="col-xs-7">
+                            <?php echo $this->agrega->getElement('identificacion'); ?>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-4 control-label">Nombres</label>
+                        <div class="col-xs-7">
+                            <?php echo $this->agrega->getElement('nombre_real'); ?>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-4 control-label">Apellidos</label>
+                        <div class="col-xs-7">
+                            <?php echo $this->agrega->getElement('apellido_real'); ?>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-4 control-label">Cargo</label>
+                        <div class="col-xs-7">
+                            <?php echo $this->agrega->getElement('cargo'); ?>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-4 control-label">Perfil</label>
+                        <div class="col-xs-7">
+                            <?php echo $this->agrega->getElement('perfil'); ?>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-4 control-label">Estado</label>
+                        <div class="col-xs-7">
+                            <?php echo $this->agrega->getElement('estado'); ?>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-7 col-xs-offset-3">
+                            <?php echo $this->agrega->getElement('submit'); ?>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

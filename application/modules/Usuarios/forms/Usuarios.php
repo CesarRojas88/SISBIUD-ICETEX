@@ -5,43 +5,73 @@ class Usuarios_Form_Usuarios extends Zend_Form
 
     public function init()
     {
-        /* Form Elements & Other Definitions Here ... */
         $this->setName('usuarios');
         
+        
         $usuario=new Zend_Form_Element_Text('nombre_usuario');
-        $usuario->setLabel('Usuario: ')
-                ->setRequired(true)
+        $usuario->setRequired(true)
                 ->addFilter('StripTags')
                 ->addFilter('StringTrim')
-                ->addValidator('NotEmpty');
-        //$modulo=new Zend_Form_Element_Hidden('cod_modulo');
-        //$modulo->setValue('2');
+                ->addValidator('NotEmpty')
+                ->setAttrib('required', 'required')
+                ->setAttrib('class', 'form-control');
         
         $contrasena=new Zend_Form_Element_Password('contrasena');
-        $contrasena->setLabel('Contraseña: ')
-                ->setRequired(true)
+        $contrasena->setRequired(true)
                 ->addFilter('StripTags')
                 ->addFilter('StringTrim')
-                ->addValidator('NotEmpty');
+                ->addValidator('NotEmpty')
+                ->setAttrib('required', 'required')
+                ->setAttrib('class', 'form-control');
+        
+        $identificacion=new Zend_Form_Element_Text('identificacion');
+        $identificacion->setRequired(true)
+                ->addFilter('StripTags')
+                ->setAttrib('required', 'required')
+                ->setAttrib('class', 'form-control');
+        
+        $nombre=new Zend_Form_Element_Text('nombre_real');
+        $nombre->setRequired(true)
+                ->addFilter('StripTags')
+                ->addFilter('StringTrim')
+                ->setAttrib('required', 'required')
+                ->setAttrib('class', 'form-control');
+        
+        $apellido=new Zend_Form_Element_Text('apellido_real');
+        $apellido->setRequired(true)
+                ->addFilter('StripTags')
+                ->addFilter('StringTrim')
+                ->setAttrib('required', 'required')
+                ->setAttrib('class', 'form-control');
+        
+        $cargo=new Zend_Form_Element_Text('cargo');
+        $cargo->setRequired(true)
+                ->addFilter('StripTags')
+                ->addFilter('StringTrim')
+                ->setAttrib('required', 'required')
+                ->setAttrib('class', 'form-control');
+        
         $perfil=new Zend_Form_Element_Select('perfil');
-        $perfil->setLabel('Perfil: ')
-                ->setRequired(true)
+        $perfil->setRequired(true)
                 ->addMultiOption('','Seleccione...')
+                ->addMultiOption('Director','Director')
                 ->addMultiOption('Administrador','Administrador')
-                ->addMultiOption('Secretaria','Secretaria');
+                ->setAttrib('required', 'required')
+                ->setAttrib('class', 'form-control');
+        
         $estado=new Zend_Form_Element_Select('estado');
-        $estado->setLabel('Estado: ')
-                ->setRequired(true)
+        $estado ->setRequired(true)
                 ->addMultiOption('','Seleccione...')
                 ->addMultiOption('Activo','Activo')
-                ->addMultiOption('Inactivo','Inactivo');
+                ->addMultiOption('Inactivo','Inactivo')
+                ->setAttrib('required', 'required')
+                ->setAttrib('class', 'form-control');
         
         $submit=new Zend_Form_Element_Submit('submit');
-        $submit->setLabel('Insertar Usuario');
+        $submit->setLabel('Insertar')
+                ->setAttrib('class', 'btn btn-primary');
         
-        $this->addElements(array($usuario,$modulo,$contrasena,$perfil,$estado,$submit));
+        $this->addElements(array($usuario,$contrasena,$identificacion,$nombre,$apellido,$cargo,$perfil,$estado,$submit));
+        $this->setElementDecorators(array('ViewHelper',"Errors")) ;
     }
-
-
 }
-
