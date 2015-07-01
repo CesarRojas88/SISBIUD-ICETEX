@@ -151,6 +151,8 @@
             <controllerFile controllerName="Usuario">
               <actionMethod actionName="index"/>
               <actionMethod actionName="crearusuario"/>
+              <actionMethod actionName="actualizarusuario"/>
+              <actionMethod actionName="eliminarusuario"/>
             </controllerFile>
           </controllersDirectory>
           <formsDirectory>
@@ -263,6 +265,12 @@
               </viewControllerScriptsDirectory>
               <viewControllerScriptsDirectory forControllerName="Usuario">
                 <viewScriptFile forActionName="crearusuario"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Usuario">
+                <viewScriptFile forActionName="actualizarusuario"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Usuario">
+                <viewScriptFile forActionName="eliminarusuario"/>
               </viewControllerScriptsDirectory>
             </viewScriptsDirectory>
             <viewHelpersDirectory/>

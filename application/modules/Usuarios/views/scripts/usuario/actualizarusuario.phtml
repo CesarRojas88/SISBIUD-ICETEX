@@ -1,0 +1,42 @@
+<aside>
+    <div class="panel-primary panel">
+        <div class="panel-heading"><h4 class="panel-title">ACTUALIZAR USUARIO</h4></div>
+    </div>
+    <form class="panel panel-body" style="box-shadow: 1px 0px 5px 1px #cccccc;" method="post">
+        <table style="width: 100%;">
+            <tr>
+                <td><label>Nombre de Usuario</label></td>
+                <td><?php echo $this->form->getElement('nombre_usuario'); ?></td>
+                <td><label>Contraseña</label></td>
+                <td><?php echo $this->form->getElement('contrasena'); ?></td>
+                
+                <?php //var_dump($this->form->getValue('nombre_usuario')); ?>
+            </tr>
+            <tr>
+                <td><label>Identificación</label></td>
+                <td><?php echo $this->form->getElement('identificacion'); ?></td>
+                <td><label>Nombres</label></td>
+                <td><?php echo $this->form->getElement('nombre_real'); ?></td>
+                
+            </tr>
+            <tr>
+                <td><label>Apellidos</label></td>
+                <td><?php echo $this->form->getElement('apellido_real'); ?></td>
+                <td><label>Cargo</label></td>
+                <td><?php echo $this->form->getElement('cargo'); ?></td>
+            </tr>
+            <tr>
+                <td><label>Perfil</label></td>
+                <td><?php echo $this->form->getElement('perfil'); ?></td>
+                <td><label>Estado</label></td>
+                <td><?php echo $this->form->getElement('estado'); ?></td>
+            </tr>
+            <tr><td>&nbsp;</td></tr>
+            <tr>
+                <td colspan="4" align="right"><?php echo $this->form->getElement('submit'); ?></td>
+                <td colspan="3"><button class="btn btn-default" onclick="javascript:location.href='<?php echo $this->url(array('module'=>'Usuarios','controller'=>'Usuario','action'=>'index')); ?>'" >Cancelar</button></td>
+            </tr>
+        </table>
+    </form>
+<?php //echo $this->form; ?>
+</aside>

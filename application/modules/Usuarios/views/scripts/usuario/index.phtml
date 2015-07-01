@@ -54,11 +54,13 @@
                             </button>
 
                             <ul class="dropdown-menu" role="menu">
-                              <li><a href="#">Editar</a></li>
-                              <li><a href="#">Eliminar</a></li>
-                              <li><a href="#">Actualizar</a></li>
+                              <li>
+                                  <a href="<?php echo $this->url(array('module' => 'Usuarios', 'controller' => 'Usuario', 'action' => 'actualizarusuario', 'id' => $d->nombre_usuario)); ?>">
+                                      Editar
+                                  </a>
+                              </li>
                               <li class="divider"></li>
-                              <li><a href="#">Acción #4</a></li>
+                              <li><a href="#">Eliminar</a></li>
                             </ul>
                           </div>
                     </td>
