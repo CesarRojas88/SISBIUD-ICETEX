@@ -414,6 +414,9 @@
           <controllersDirectory>
             <controllerFile controllerName="Estado">
               <actionMethod actionName="index"/>
+              <actionMethod actionName="crearestado"/>
+              <actionMethod actionName="actualizarestado"/>
+              <actionMethod actionName="eliminarestado"/>
             </controllerFile>
           </controllersDirectory>
           <formsDirectory>
@@ -528,6 +531,15 @@
             <viewScriptsDirectory>
               <viewControllerScriptsDirectory forControllerName="Estado">
                 <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Estado">
+                <viewScriptFile forActionName="crearestado"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Estado">
+                <viewScriptFile forActionName="actualizarestado"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Estado">
+                <viewScriptFile forActionName="eliminarestado"/>
               </viewControllerScriptsDirectory>
             </viewScriptsDirectory>
             <viewHelpersDirectory/>

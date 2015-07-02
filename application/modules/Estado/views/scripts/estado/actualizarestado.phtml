@@ -1,0 +1,22 @@
+<aside>
+    <div class="panel-primary panel">
+        <div class="panel-heading"><h4 class="panel-title">ACTUALIZAR ESTADO DE CRÉDITO</h4></div>
+    </div>
+    <form class="panel panel-body" style="box-shadow: 1px 0px 5px 1px #cccccc;" method="post">
+        <table >
+            <tr>
+                <?php echo $this->form->getElement('id_estado_credito'); ?>
+                <td>Nombre estado de crédito</td>
+                <td><?php echo $this->form->getElement('nombre_estado_credito'); ?></td>
+                <td>Descripción estado de crédito</td>
+                <td><?php echo $this->form->getElement('descripcion_estado_credito'); ?></td>
+            </tr>
+            <tr><td>&nbsp;</td></tr>
+            <tr>
+                <td colspan="4" align="right"><?php echo $this->form->getElement('insertar'); ?></td>
+                <td><button class="btn btn-default" onclick="location.href='<?php echo $this->url(array('module'=>'Estado','controller'=>'Estado','action'=>'index')); ?>'">Cancelar</button></td>
+            </tr>
+        </table>
+    </form>
+<?php //echo $this->form; ?>
+</aside>

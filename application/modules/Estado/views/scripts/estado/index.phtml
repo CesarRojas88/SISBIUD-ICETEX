@@ -1,88 +1,157 @@
+<div id="verModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title"><strong>Estado de crédito</strong></h4>
+            </div>
+            <div class="modal-body">
+                <div class="well">
+                    <h5><strong><div id="muestranom" align="left"></div></strong></h5>
+                    <p id='texto' align="justify" ></p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Confirma Eliminar</h4>
+            </div>
+
+            <div class="modal-body">
+                <p>Esta a punto de eliminar el registro, este procedimiento es irreversible.</p>
+                <p>¿Desea confirmar la operación?</p>
+                <!--<p class="debug-url"></p>-->
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <a href="#" class="btn btn-danger danger">Eliminar</a>
+            </div>
+        </div>
+    </div>
+</div>
 <aside>
     <div class="panel-primary panel">
-        <div class="panel-heading"><h4 class="panel-title">ESTADO DE CR&Eacute;DITO</h4></div>
+        <div class="panel-heading"><h4 class="panel-title">ESTADO DE CRÉDITO</h4></div>
     </div>
     <div class="panel panel-body">
+        <form class="form-inline form-group">                    
+            <label>Filtrar por: </label>
+            <div class="btn-group">
+                <span class="label label-primary" style="padding: 5px;">Estado de crédito</span>
+            </div>
+            <div class="form-group">
+                <select name="estado" class="form-control">
+                    <option value="">Seleccione...</option>
+                    <?php foreach ($this->listaEstado as $estado) : ?>
+                        <option value="<?php echo $estado->id_estado_credito; ?>">
+                            <?php echo $estado->nombre_estado_credito; ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <div style="text-align: right" class="form-group">
+                <input type="button" value="Buscar" class="btn btn-danger"/>
+            </div>
+        </form>
     </div>
-        <div class="panel panel-body">
-            <form id="campoEliminar" method="post">
-                <table class="table table-striped table-bordered table-hover">
-                    <thead>
-                        <tr>
-                            <th>&nbsp;</th>
-                            <th class="text-center">Estado</th>
-                            <th class="text-center">Descripci&oacute;n</th>
-                            <th>&nbsp;</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($this->listaEstado as $d) : ?>
-                        <tr>
-                            <td><input type="checkbox" class="checkbox" id="<?php echo $d->id_estado_credito;?>"/></td>
-                            <td><?php echo $d->nombre_estado_credito;?></td>
-                            <td><?php echo $this->escape($d->descripcion_estado_credito); ?></td>
-                            <td>
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-default">
-                                      Editar
-                                    </button>
-                                  </div>
-                            </td>
-                        </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
-                <div style="display: none"><?php echo $this->anadir->getElement('check'); ?></div>
-            </br>
-            <div style="text-align: right">
-                <button type="button" class="btn btn-danger" data-target="#add" data-toggle="modal">Agregar</button>
-                <?php echo $this->anadir->getElement('eliminar') ?>
-            </div>
-          </form>
+
+    <div style="box-shadow: 1px 0px 5px 1px #cccccc;" class="panel panel-body">
+        <!------------------------>
+ <!----><form id="campoEliminar" method="post">
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+                <tr>
+             <!----><th>&nbsp;</th>
+                    <th class="text-center">Estado de crédito</th>
+                    <th class="text-center">Descripción</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <?php foreach ($this->listaEstado as $estado) : ?>
+                    <tr>
+                        <?php $idEstado = $estado->id_estado_credito; ?>
+                 <!----><td><input type="checkbox" class="checkbox" id="<?php echo $idEstado;?>"/></td>
+                        <td id="tdd<?php echo $idEstado; ?>" value="<?php echo $this->escape($estado->nombre_estado_credito); ?>">
+                            <?php echo $this->escape($estado->nombre_estado_credito); ?>
+                        </td>
+                        <td id='td<?php echo $idEstado; ?>' value="<?php echo strip_tags($estado->descripcion_estado_credito); ?>">
+                            <?php echo substr($estado->descripcion_estado_credito,0,30)."..."; ?>
+                        </td>
+                        <td>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default dropdown-toggle"data-toggle="dropdown">
+                                    Opciones <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a data-toggle="modal" name='<?php echo $idEstado; ?>' href="#verModal">Ver</a></li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a href="<?php echo $this->url(array('module' => 'Estado', 'controller' => 'Estado', 'action' => 'actualizarestado', 'id' => $idEstado)); ?>">
+                                            Editar
+                                        </a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a data-href="<?php echo $this->url(array('module' => 'Estado', 'controller' => 'Estado', 'action' => 'eliminarestado', 'id' => $idEstado)); ?>" data-toggle="modal" data-target="#confirm-delete" href="#">
+                                            Eliminar
+                                        </a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+ <!----><div style="display: none"><?php echo $this->crear->getElement('check'); ?></div>
+        <div class="text-right" style="margin-top: 20px;">
+            <button class="btn btn-danger" data-toggle="modal" data-target="#loginModal">Ingresar Estado de Crédito</button>
+     <!----><?php echo $this->crear->getElement('eliminar') ?>
         </div>
-    <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <h4 class="modal-title">Nueva modalidad de crédito</h4>
-                </div>
-                <div class="modal-body">
-                    <form class="form-horizontal" id="insertEstado" method="post">
-                        <div class="form-group">
-                            <label class="col-xs-4 control-label">Nombre de Estado</label>
-                            <div class="col-xs-7">
-                                <?php echo $this->anadir->getElement('tipo'); ?>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-xs-4 control-label">Descripción</label>
-                            <div class="col-xs-7">
-                                <?php echo $this->anadir->getElement('descripcion'); ?>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-xs-5 col-xs-offset-3">
-                                <?php echo $this->anadir->getElement('insertar'); ?>
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+ <!----></form>  
+        <!--Modal que contiene el formulario de añadir-->
+        <?php echo $this->action('crearestado', 'Estado', 'Estado'); ?>
+        <!---------------------------------------------->
     </div>
 </aside>
 <script>
-    $(document).ready(function(){
+    $(document).ready(function() {
         $('.dropdown-toggle').dropdown();
+        /*$('td:nth-child(2)').each(function(){
+         if ($(this).text().length > 20)
+         $(this).text($(this).text().substring(0,20));
+         });*/
+        $('a').click(function() {
+            $('p[id=texto]').text($('td[id=td' + $(this).attr('name') + ']').attr('value'));
+            $('div[id=muestranom]').text($('td[id=tdd' + $(this).attr('name') + ']').attr('value'));
+        });
+        /***********************/
         $('[type=checkbox]').change(function(){
             if ($(this).prop('checked'))
                 $('[id$='+$(this).attr('id')+']').prop('checked', true);
             else
                 $('[id$='+$(this).attr('id')+']').prop('checked', false);
         });
+        /***********************/
+    });
+    $('#confirm-delete').on('show.bs.modal', function(e)
+    {
+        $(this).find('.danger').attr('href', $(e.relatedTarget).data('href'));
+        //$('.debug-url').html('Elimina registro: <strong>' + $(this).find('.danger').attr('href') + '</strong>');
     });
 </script>

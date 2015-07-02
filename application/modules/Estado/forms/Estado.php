@@ -7,15 +7,14 @@ class Estado_Form_Estado extends Zend_Form
     {
         /* Form Elements & Other Definitions Here ... */
         $this->setName('estado');
-        $tipo = new Zend_Form_Element_Text('tipo');
-        $descripcion = new Zend_Form_Element_Textarea('descripcion');
-        $submit = new Zend_Form_Element_Submit('insertar');
-        $submit->setLabel('Insertar')
-               ->setAttrib('class', 'btn btn-primary');
-        $tipo->setAttrib('required', 'required')
+        $id = new Zend_Form_Element_Hidden('id_estado_credito');
+        $id->addFilter('Int');
+        $nombre = new Zend_Form_Element_Text('nombre_estado_credito');
+        $nombre->setAttrib('required', 'required')
              ->setRequired(true)
              ->setAttrib('class', 'form-control')
              ->addValidator('notEmpty');
+        $descripcion = new Zend_Form_Element_Textarea('descripcion_estado_credito');
         $descripcion->setAttrib('required', 'required')
                     ->addValidator('notEmpty')
                     ->setAttrib('cols', 50)
@@ -23,6 +22,11 @@ class Estado_Form_Estado extends Zend_Form
                     ->setAttrib('class', 'form-control')
                     ->addFilter('StripTags')
                     ->addFilter('StringTrim');
+        $submit = new Zend_Form_Element_Submit('insertar');
+        $submit->setLabel('Insertar')
+               ->setAttrib('class', 'btn btn-primary');
+       
+        
         $listaEstado = new Estado_Model_DbTable_EstadoDeCredito();
         $listaEstados = $listaEstado->Estados();
         foreach ($listaEstados as $lE) 
@@ -35,7 +39,8 @@ class Estado_Form_Estado extends Zend_Form
         $submit2->setLabel('Eliminar')
                ->setAttrib('class', 'btn btn-danger');
         $checkbox->addMultiOptions($lista);
-        $this->addElements(array($tipo,$descripcion,$submit,$submit2,$checkbox));
+        //$this->addElements(array($tipo,$descripcion,$submit,$submit2,$checkbox));
+        $this->addElements(array($id,$nombre,$descripcion,$submit,$submit2,$checkbox));
         $this->setElementDecorators(array('ViewHelper',"Errors"));
     }
 
