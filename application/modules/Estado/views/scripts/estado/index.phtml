@@ -121,7 +121,7 @@
  <!----><div style="display: none"><?php echo $this->crear->getElement('check'); ?></div>
         <div class="text-right" style="margin-top: 20px;">
             <button class="btn btn-danger" data-toggle="modal" data-target="#loginModal">Ingresar Estado de Crédito</button>
-     <!----><?php echo $this->crear->getElement('eliminar') ?>
+            <!----><a onclick="return confirm('¿Está seguro de eliminar los registros seleccionados?')"><?php echo $this->crear->getElement('eliminar') ?></a>
         </div>
  <!----></form>  
         <!--Modal que contiene el formulario de añadir-->
